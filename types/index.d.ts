@@ -40,10 +40,18 @@ declare namespace UglifyPHP {
         minify?: MinifyOptions,
         /**
          * A path to output to, if empty then no file will be written.
-         * Note that UglifyPHP considers a string of length 0 to be empty, as well as undefined.
+         *
+         * - The file will not be created if it does not already exist. To change this, set {@link create} to true.
+         *
+         * - Note that UglifyPHP considers a string of length 0 to be empty, as well as undefined.
          * The output can be retrieved from the return value of minify or minifySync.
          */
-        output?: string
+        output?: string,
+        /**
+         * Whether to create the output file if it does not exist. Does nothing if {@link output} is empty.
+         * Default is false.
+         */
+        create?: boolean,
     };
 
 }
