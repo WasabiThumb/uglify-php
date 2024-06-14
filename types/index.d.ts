@@ -48,6 +48,12 @@ declare namespace UglifyPHP {
 
 }
 
+/**
+ * UglifyPHP is a JavaScript minifier and simple obfuscator for PHP files.
+ * @see minify
+ * @see minifySync
+ * @see minifyCode
+ */
 declare interface UglifyPHP {
 
     /**
@@ -57,8 +63,9 @@ declare interface UglifyPHP {
      * @returns A promise that resolves with the uglified code. If {@link Options.output output} was specified in **options**,
      * the data will also have been written to the file specified.
      * @see minifySync
+     * @see minifyCode
      */
-    minify(pathOrCode: string, options: UglifyPHP.Options): Promise<string>;
+    minify(pathOrCode: string, options?: UglifyPHP.Options): Promise<string>;
 
     /**
      * Uglifies PHP synchronously. When providing code instead of a file path, {@link statSync} may still be called.
@@ -68,7 +75,28 @@ declare interface UglifyPHP {
      * @returns The uglified code. If {@link Options.output output} was specified in **options**,
      * the data will also have been written to the file specified.
      * @see minify
+     * @see minifyCode
      */
-    minifySync(pathOrCode: string, options: UglifyPHP.Options): string;
+    minifySync(pathOrCode: string, options?: UglifyPHP.Options): string;
+
+    /**
+     * Uglifies PHP code synchronously. This has an advantage over {@link minifySync} in that it can always skip a
+     * call to {@link statSync}, however this function cannot be used to minify by file path.
+     *
+     * An asynchronous variant of this method is not offered as the distinction between {@link minify} and
+     * {@link minifySync} arises from asynchronous I/O, not asynchronous parsing.
+     *
+     * @param code String containing PHP code.
+     * @param options Options to pass to the uglifier.
+     * @returns The uglified code. If {@link Options.output output} was specified in **options**, the data will also
+     * have been written to the file specified.
+     * @see minify
+     * @see minifySync
+     */
+    minifyCode(code: string, options?: UglifyPHP.Options): string;
 
 }
+
+declare const UglifyPHP: UglifyPHP;
+
+export = UglifyPHP;

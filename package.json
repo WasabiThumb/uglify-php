@@ -19,8 +19,7 @@
 		"uniqid": "4.1.1"
 	},
 	"devDependencies": {
-		"@types/node": "^20.14.2",
-		"@types/uniqid": "^5.3.4"
+		"@types/node": "^20"
 	},
 	"author": {
 		"name": "Flávio Reis",
