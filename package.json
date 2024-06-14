@@ -13,11 +13,15 @@
 		"minimize"
 	],
 	"main": "lib/index.js",
+	"types": "types/index.d.ts",
 	"dependencies": {
 		"php-parser": "2.0.3",
 		"uniqid": "4.1.1"
 	},
-	"devDependencies": {},
+	"devDependencies": {
+		"@types/node": "^20.14.2",
+		"@types/uniqid": "^5.3.4"
+	},
 	"author": {
 		"name": "Flávio Reis",
 		"email": "flavioreis10@hotmail.com",
