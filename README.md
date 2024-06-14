@@ -48,6 +48,12 @@ let options = {
 UglifyPHP.minify("C:/web/file.php", options).then(function (source) {
   console.log(source);
 });
+
+// Synchronous API (Path or Source Code)
+let source = UglifyPHP.minifySync("C:/web/file.php", options);
+
+// Synchronous API (Source Code)
+source = UglifyPHP.minifyCode("<?php echo 'hi'; ?>", options);
 ```
 
 ## Example
